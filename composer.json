@@ -1,0 +1,25 @@
+{
+    "name": "amooati/bagisto-customizable-options",
+    "description": "You can define some customizable options for products and allow customers to fill that options to customize their products",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AmooAti",
+            "email": "adhamiamirhossein@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AmooAti\\CustomizableOption\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AmooAti\\CustomizableOption\\Providers\\CustomizableOptionServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+}
