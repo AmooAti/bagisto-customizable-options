@@ -14,6 +14,7 @@
             "AmooAti\\CustomizableOption\\": "src/"
         }
     },
+    "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
@@ -21,7 +22,6 @@
             ]
         }
     },
-    "minimum-stability": "dev",
     "require": {
         "php": "^7.4|^8.0"
     }
