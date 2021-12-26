@@ -16,3 +16,4 @@ return [
     ]
 ];
 ```
+3. run `php artisan migrate`
