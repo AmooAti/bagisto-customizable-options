@@ -1,7 +1,7 @@
 # Bagisto Product Customizable Options
 Package for adding customizable options to products
 
-##Installation
+## Installation
 
 1. `composer require amooati/bagisto-customizable-options`
 2. put `\AmooAti\CustomizableOption\Providers\ModuleServiceProvider::class` at the end of `config/app.php`
