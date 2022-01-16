@@ -2,10 +2,10 @@
 
 namespace AmooAti\CustomizableOption\Models;
 
-use AmooAti\CustomizableOption\Contracts\ProductOptionTranslation;
+use AmooAti\CustomizableOption\Contracts\ProductOptionTranslation as ProductOptionTranslationContract;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductOptionTranslations extends Model implements ProductOptionTranslation
+class ProductOptionTranslation extends Model implements ProductOptionTranslationContract
 {
     protected $table = 'amooati_product_option_translations';
 
