@@ -5,3 +5,4 @@ Package for adding customizable options to products
 
 1. `composer require amooati/bagisto-customizable-options`
 2. run `php artisan migrate`
+3. run `php artisan optimize`
