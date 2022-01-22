@@ -5,7 +5,10 @@ return [
         'catalog' => [
             'product' => [
                 'customizable-options' => 'Customizable Options',
-                'add' => 'Add'
+                'add'                  => 'Add',
+                'text'                 => 'Text',
+                'type'                 => 'Type',
+                'required'             => 'Required'
             ]
         ]
     ]
