@@ -16,15 +16,16 @@ class CreateAmooatiProductOptionsTable extends Migration
         Schema::create('amooati_product_options', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('product_id');
-            $table->string('type')->nullable();
-            $table->boolean('is_required')->default(1);
-            $table->string('sku')->nullable();
-            $table->unsignedInteger('max_characters')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->enum('type', ['text']);
+            $table->unsignedTinyInteger('required')->default(0);
+            $table->unsignedSmallInteger('max_characters')->nullable();
             $table->string('file_extension')->nullable();
-            $table->unsignedSmallInteger('image_size_x')->nullable();
-            $table->unsignedSmallInteger('image_size_y')->nullable();
-            $table->unsignedInteger('sort_order')->default(0);
-            $table->foreign('product_id')->on('products')->references('id')->cascadeOnDelete();
+            $table->unsignedInteger('max_file_size')->nullable();
+            $table->unsignedInteger('max_image_size_x')->nullable();
+            $table->unsignedInteger('max_image_size_y')->nullable();
+            $table->unsignedSmallInteger('position')->default(0);
+            $table->decimal('price', 12, 4)->default(0);
             $table->timestamps();
         });
     }
