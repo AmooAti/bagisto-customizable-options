@@ -11,8 +11,21 @@ class ProductOption extends TranslatableModel implements ProductOptionContract
 {
     protected $table = 'amooati_product_options';
 
+    protected $fillable = [
+        'required',
+        'price',
+        'type',
+        'position',
+        'max_characters',
+        'product_id',
+        'file_extension',
+        'max_file_size',
+        'max_image_size_x',
+        'max_image_size_y',
+    ];
+
     public array $translatedAttributes = [
-        'title'
+        'title',
     ];
 
     protected $with = ['translations'];
