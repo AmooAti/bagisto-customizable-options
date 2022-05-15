@@ -57,14 +57,14 @@ $customizationOptions = $customizationOptions->map(function ($item) {
                         </label>
                         <label>{{ __('amooati-co::app.admin.product.customization-options.title') }}</label>
                         <input type="text" class="control" :id="`co[` + option.id + `][title]`"
-                               :name="`co[` + option.id + `][name]`" v-model="option.title"
+                               :name="`co[` + option.id + `][title]`" v-model="option.title"
                                v-validate="'required'"
-                               data-vv-as="&quot;{{ __('amooati-co::app.admin.product.customization-options.field-name') }}&quot;">
+                               data-vv-as="&quot;{{ __('amooati-co::app.admin.product.customization-options.name') }}&quot;">
                         <label>{{ __('amooati-co::app.admin.product.customization-options.max-characters') }}</label>
                         <input type="number" class="control" :id="`co[` + option.id + `][max_characters]`"
                                :name="`co[` + option.id + `][max_characters]`" v-model="option.max_characters"
                                v-validate="'required|numeric|min:1'"
-                               data-vv-as="&quot;{{ __('amooati-co::app.admin.product.customization-options.max-chars') }}&quot;">
+                               data-vv-as="&quot;{{ __('amooati-co::app.admin.product.customization-options.max-characters') }}&quot;">
                         <label>{{ __('amooati-co::app.admin.product.customization-options.price') }}</label>
                         <input type="number" class="control" :id="`co[` + option.id + `][price]`"
                                :name="`co[` + option.id + `][price]`" v-model="option.price"
