@@ -16,7 +16,7 @@ class CustomizableOptionServiceProvider extends ServiceProvider
         $this->app->register(ModuleServiceProvider::class);
 
         Event::listen('bagisto.admin.catalog.product.edit_form_accordian.Shipping.after', function($viewRenderEventManager) {
-            $viewRenderEventManager->addTemplate('amooati-co::admin.catalog.products.edit');
+            $viewRenderEventManager->addTemplate('amooati-co::admin.catalog.products.customization_options');
         });
     }
 }
