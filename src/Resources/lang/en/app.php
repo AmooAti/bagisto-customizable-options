@@ -2,13 +2,17 @@
 
 return [
     'admin' => [
-        'catalog' => [
-            'product' => [
-                'customizable-options' => 'Customizable Options',
-                'add'                  => 'Add',
-                'text'                 => 'Text',
-                'type'                 => 'Type',
-                'required'             => 'Required'
+        'product' => [
+            'customization-options' => [
+                'customization-options' => 'Customizable Options',
+                'add' => 'Add',
+                'text' => 'Text',
+                'type' => 'Type',
+                'required' => 'Required',
+                'remove' => 'Remove',
+                'title' => 'Title',
+                'price' => 'Price',
+                'max-characters' => 'Max Characters',
             ]
         ]
     ]
