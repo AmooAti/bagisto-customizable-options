@@ -36,7 +36,7 @@ class EventServiceProvider extends ServiceProvider
                     $newProductOptionsIds[] = $productOptionRepository->update($customizableOption, $optionId)->id;
                 }
             }
-            $productOptionRepository->whereNotIn('id', $newProductOptionsIds)->delete();
+            $product->customizable_options()->whereNotIn('id', $newProductOptionsIds)->delete();
         });
     }
 }
