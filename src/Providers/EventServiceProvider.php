@@ -24,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
             }
             $newProductOptionsIds = [];
             foreach ($customizableOptions as $customizableOption) {
+                if (!isset($customizableOption['required'])) {
+                    $customizableOption['required'] = 0;
+                }
                 if (empty($customizableOption['option_id'])) {
                     // create new one
                     $customizableOption['product_id'] = $product->id;
