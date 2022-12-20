@@ -15,5 +15,10 @@ return [
                 'max-characters' => 'Max Characters',
             ]
         ]
+    ],
+    'shop' => [
+        'product' => [
+            'missing-required' => 'Required option value is missing'
+        ]
     ]
 ];

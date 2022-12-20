@@ -8,7 +8,8 @@
 @stop
 
 @section('seo')
-    <meta name="description" content="{{ trim($product->meta_description) != "" ? $product->meta_description : \Illuminate\Support\Str::limit(strip_tags($product->description), 120, '') }}"/>
+    <meta name="description"
+          content="{{ trim($product->meta_description) != "" ? $product->meta_description : \Illuminate\Support\Str::limit(strip_tags($product->description), 120, '') }}"/>
 
     <meta name="keywords" content="{{ $product->meta_keywords }}"/>
 
@@ -30,25 +31,25 @@
         $productBaseImage = product_image()->getProductBaseImage($product, $images);
     @endphp
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image"/>
 
-    <meta name="twitter:title" content="{{ $product->name }}" />
+    <meta name="twitter:title" content="{{ $product->name }}"/>
 
-    <meta name="twitter:description" content="{{ $product->description }}" />
+    <meta name="twitter:description" content="{{ $product->description }}"/>
 
-    <meta name="twitter:image:alt" content="" />
+    <meta name="twitter:image:alt" content=""/>
 
-    <meta name="twitter:image" content="{{ $productBaseImage['medium_image_url'] }}" />
+    <meta name="twitter:image" content="{{ $productBaseImage['medium_image_url'] }}"/>
 
-    <meta property="og:type" content="og:product" />
+    <meta property="og:type" content="og:product"/>
 
-    <meta property="og:title" content="{{ $product->name }}" />
+    <meta property="og:title" content="{{ $product->name }}"/>
 
-    <meta property="og:image" content="{{ $productBaseImage['medium_image_url'] }}" />
+    <meta property="og:image" content="{{ $productBaseImage['medium_image_url'] }}"/>
 
-    <meta property="og:description" content="{{ $product->description }}" />
+    <meta property="og:description" content="{{ $product->description }}"/>
 
-    <meta property="og:url" content="{{ route('shop.productOrCategory.index', $product->url_key) }}" />
+    <meta property="og:url" content="{{ route('shop.productOrCategory.index', $product->url_key) }}"/>
 @stop
 
 @push('css')
@@ -147,7 +148,8 @@
 
                                     @if ($product->getTypeInstance()->showQuantityBox())
                                         <div class="col-12">
-                                            <quantity-changer quantity-text="{{ __('shop::app.products.quantity') }}"></quantity-changer>
+                                            <quantity-changer
+                                                quantity-text="{{ __('shop::app.products.quantity') }}"></quantity-changer>
                                         </div>
                                     @else
                                         <input type="hidden" name="quantity" value="1">
@@ -156,7 +158,18 @@
                                     {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
 
                                     @foreach($product->customizable_options as $customizableOption)
-                                        <label>{{ $customizableOption->title }}</label><input type="text"/>
+                                        <div class="col-12">
+                                            @if ($customizableOption->type == 'text')
+                                                <label
+                                                    class="control-label @if ($customizableOption->required) {{'required'}} @endif">{{ $customizableOption->title }}</label>
+                                                <input class="control"
+                                                       name="{{ "customizable_options[" . $customizableOption->id . ']' }}"
+                                                       maxlength="{{$customizableOption->max_characters ?? 191}}"
+                                                       @if($customizableOption->required) v-validate="'required'"
+                                                       :data-vv-as="`{{ __('amooati-co::app.shop.product.missing-required') }}`" @endif/>
+                                            @endif
+                                        </div>
+
                                     @endforeach
 
                                     @include ('shop::products.view.downloadable')
@@ -249,7 +262,7 @@
                 let currentProductId = '{{ $product->url_key }}';
                 let existingViewed = window.localStorage.getItem('recentlyViewed');
 
-                if (! existingViewed) {
+                if (!existingViewed) {
                     existingViewed = [];
                 } else {
                     existingViewed = JSON.parse(existingViewed);
@@ -265,7 +278,7 @@
                 } else {
                     var uniqueNames = [];
 
-                    $.each(existingViewed, function(i, el){
+                    $.each(existingViewed, function (i, el) {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
@@ -278,7 +291,7 @@
             },
 
             methods: {
-                onSubmit: function(event) {
+                onSubmit: function (event) {
                     if (event.target.getAttribute('type') != 'submit')
                         return;
 
@@ -288,7 +301,7 @@
                         if (result) {
                             this.is_buy_now = event.target.classList.contains('buynow') ? 1 : 0;
 
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 document.getElementById('product-form').submit();
                             }, 0);
                         } else {
@@ -297,7 +310,7 @@
                     });
                 },
 
-                activateAutoScroll: function(event) {
+                activateAutoScroll: function (event) {
 
                     /**
                      * This is normal Element
@@ -323,35 +336,35 @@
             }
         });
 
-        window.onload = function() {
+        window.onload = function () {
             var thumbList = document.getElementsByClassName('thumb-list')[0];
             var thumbFrame = document.getElementsByClassName('thumb-frame');
             var productHeroImage = document.getElementsByClassName('product-hero-image')[0];
 
             if (thumbList && productHeroImage) {
-                for (let i=0; i < thumbFrame.length ; i++) {
-                    thumbFrame[i].style.height = (productHeroImage.offsetHeight/4) + "px";
-                    thumbFrame[i].style.width = (productHeroImage.offsetHeight/4)+ "px";
+                for (let i = 0; i < thumbFrame.length; i++) {
+                    thumbFrame[i].style.height = (productHeroImage.offsetHeight / 4) + "px";
+                    thumbFrame[i].style.width = (productHeroImage.offsetHeight / 4) + "px";
                 }
 
                 if (screen.width > 720) {
-                    thumbList.style.width = (productHeroImage.offsetHeight/4) + "px";
-                    thumbList.style.minWidth = (productHeroImage.offsetHeight/4) + "px";
+                    thumbList.style.width = (productHeroImage.offsetHeight / 4) + "px";
+                    thumbList.style.minWidth = (productHeroImage.offsetHeight / 4) + "px";
                     thumbList.style.height = productHeroImage.offsetHeight + "px";
                 }
             }
 
-            window.onresize = function() {
+            window.onresize = function () {
                 if (thumbList && productHeroImage) {
 
-                    for(let i=0; i < thumbFrame.length; i++) {
-                        thumbFrame[i].style.height = (productHeroImage.offsetHeight/4) + "px";
-                        thumbFrame[i].style.width = (productHeroImage.offsetHeight/4)+ "px";
+                    for (let i = 0; i < thumbFrame.length; i++) {
+                        thumbFrame[i].style.height = (productHeroImage.offsetHeight / 4) + "px";
+                        thumbFrame[i].style.width = (productHeroImage.offsetHeight / 4) + "px";
                     }
 
                     if (screen.width > 720) {
-                        thumbList.style.width = (productHeroImage.offsetHeight/4) + "px";
-                        thumbList.style.minWidth = (productHeroImage.offsetHeight/4) + "px";
+                        thumbList.style.width = (productHeroImage.offsetHeight / 4) + "px";
+                        thumbList.style.minWidth = (productHeroImage.offsetHeight / 4) + "px";
                         thumbList.style.height = productHeroImage.offsetHeight + "px";
                     }
                 }
