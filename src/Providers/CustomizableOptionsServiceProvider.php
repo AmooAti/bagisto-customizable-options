@@ -2,8 +2,11 @@
 
 namespace AmooAti\CustomizableOptions\Providers;
 
+use AmooAti\CustomizableOptions\Cart\Cart;
+use AmooAti\CustomizableOptions\Models\CartItem;
 use AmooAti\CustomizableOptions\Models\Product;
 use Illuminate\Support\ServiceProvider;
+use Webkul\Checkout\Contracts\CartItem as CartItemContract;
 use Webkul\Product\Contracts\Product as ProductContract;
 
 class CustomizableOptionsServiceProvider extends ServiceProvider
@@ -20,8 +23,18 @@ class CustomizableOptionsServiceProvider extends ServiceProvider
 
         $this->app->concord->registerModel(ProductContract::class, Product::class);
 
+        $this->app->concord->registerModel(CartItemContract::class, CartItem::class);
+
         $this->publishes([
             __DIR__ . '/../Resources/views/shop/velocity/products/view.blade.php' => resource_path('themes/velocity/views/products/view.blade.php')
         ], 'public');
+    }
+
+    public function register()
+    {
+        // override bagisto cart facade
+        $this->app->extend('cart', function ($cart) {
+            return app(Cart::class);
+        });
     }
 }
