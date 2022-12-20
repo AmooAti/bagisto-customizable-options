@@ -26,7 +26,8 @@ class CustomizableOptionsServiceProvider extends ServiceProvider
         $this->app->concord->registerModel(CartItemContract::class, CartItem::class);
 
         $this->publishes([
-            __DIR__ . '/../Resources/views/shop/velocity/products/view.blade.php' => resource_path('themes/velocity/views/products/view.blade.php')
+            __DIR__ . '/../Resources/views/shop/velocity/products/view.blade.php' => resource_path('themes/velocity/views/products/view.blade.php'),
+            __DIR__ . '/../Resources/views/shop/velocity/checkout/cart/index.blade.php' => resource_path('themes/velocity/views/checkout/cart/index.blade.php')
         ], 'public');
     }
 

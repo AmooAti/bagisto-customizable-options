@@ -18,7 +18,8 @@ return [
     ],
     'shop' => [
         'product' => [
-            'missing-required' => 'Required option value is missing'
+            'missing-required' => 'Required option value is missing',
+            'customization-options' => 'Customizable Options',
         ]
     ]
 ];
