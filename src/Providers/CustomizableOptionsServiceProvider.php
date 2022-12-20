@@ -2,7 +2,9 @@
 
 namespace AmooAti\CustomizableOptions\Providers;
 
+use AmooAti\CustomizableOptions\Models\Product;
 use Illuminate\Support\ServiceProvider;
+use Webkul\Product\Contracts\Product as ProductContract;
 
 class CustomizableOptionsServiceProvider extends ServiceProvider
 {
@@ -15,5 +17,11 @@ class CustomizableOptionsServiceProvider extends ServiceProvider
         $this->app->register(ModuleServiceProvider::class);
 
         $this->app->register(EventServiceProvider::class);
+
+        $this->app->concord->registerModel(ProductContract::class, Product::class);
+
+        $this->publishes([
+            __DIR__ . '/../Resources/views/shop/velocity/products/view.blade.php' => resource_path('themes/velocity/views/products/view.blade.php')
+        ], 'public');
     }
 }

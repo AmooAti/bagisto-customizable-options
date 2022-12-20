@@ -1,6 +1,6 @@
 <?php
 $customizationOptions = [];
-$customizationOptions = app()->make(\AmooAti\CustomizableOption\Repositories\ProductOptionRepository::class)->where('product_id', $product->id)->get();
+$customizationOptions = app()->make(\AmooAti\CustomizableOptions\Repositories\ProductOptionRepository::class)->where('product_id', $product->id)->get();
 $customizationOptions = $customizationOptions->map(function ($item) {
     return [
         'option_id'      => $item->id,

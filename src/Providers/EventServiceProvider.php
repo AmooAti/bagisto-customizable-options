@@ -5,12 +5,13 @@ namespace AmooAti\CustomizableOptions\Providers;
 use AmooAti\CustomizableOptions\Repositories\ProductOptionRepository;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Webkul\Theme\ViewRenderEventManager;
 
 class EventServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Event::listen('bagisto.admin.catalog.product.edit_form_accordian.Shipping.after', function($viewRenderEventManager) {
+        Event::listen('bagisto.admin.catalog.product.edit_form_accordian.Shipping.after', function(ViewRenderEventManager $viewRenderEventManager) {
             $viewRenderEventManager->addTemplate('amooati-co::admin.catalog.products.customization_options');
         });
 
