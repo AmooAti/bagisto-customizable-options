@@ -5,7 +5,7 @@ $customizationOptions = $customizationOptions->map(function ($item) {
     return [
         'option_id'      => $item->id,
         'type'           => $item->type,
-        'title'           => $item->translate(core()->getRequestedLocaleCode())->title,
+        'title'           => $item->translate(core()->getRequestedLocaleCode())?->title,
         'required'       => $item->required,
         'max_characters' => $item->max_characters,
         'position'       => $item->position,
