@@ -1,8 +1,8 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Models;
+namespace AmooAti\CustomizableOptions\Models;
 
-use AmooAti\CustomizableOption\Contracts\ProductOptionTranslation as ProductOptionTranslationContract;
+use AmooAti\CustomizableOptions\Contracts\ProductOptionTranslation as ProductOptionTranslationContract;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductOptionTranslation extends Model implements ProductOptionTranslationContract

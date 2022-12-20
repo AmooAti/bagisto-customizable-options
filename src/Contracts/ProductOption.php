@@ -1,6 +1,6 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Contracts;
+namespace AmooAti\CustomizableOptions\Contracts;
 
 interface ProductOption
 {

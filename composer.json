@@ -11,14 +11,14 @@
     ],
     "autoload": {
         "psr-4": {
-            "AmooAti\\CustomizableOption\\": "src/"
+            "AmooAti\\CustomizableOptions\\": "src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "AmooAti\\CustomizableOption\\Providers\\CustomizableOptionServiceProvider"
+                "AmooAti\\CustomizableOptions\\Providers\\CustomizableOptionsServiceProvider"
             ]
         }
     },

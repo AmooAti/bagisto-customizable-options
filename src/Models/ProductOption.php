@@ -1,8 +1,8 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Models;
+namespace AmooAti\CustomizableOptions\Models;
 
-use AmooAti\CustomizableOption\Contracts\ProductOption as ProductOptionContract;
+use AmooAti\CustomizableOptions\Contracts\ProductOption as ProductOptionContract;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Webkul\Core\Eloquent\TranslatableModel;
 use Webkul\Product\Models\ProductProxy;

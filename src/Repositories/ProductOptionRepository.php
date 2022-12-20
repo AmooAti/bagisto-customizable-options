@@ -1,8 +1,8 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Repositories;
+namespace AmooAti\CustomizableOptions\Repositories;
 
-use AmooAti\CustomizableOption\Contracts\ProductOption;
+use AmooAti\CustomizableOptions\Contracts\ProductOption;
 use Webkul\Core\Eloquent\Repository;
 use Webkul\Core\Repositories\LocaleRepository;
 

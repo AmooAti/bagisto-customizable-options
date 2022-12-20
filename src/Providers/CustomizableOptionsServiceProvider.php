@@ -1,11 +1,10 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Providers;
+namespace AmooAti\CustomizableOptions\Providers;
 
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
-class CustomizableOptionServiceProvider extends ServiceProvider
+class CustomizableOptionsServiceProvider extends ServiceProvider
 {
     public function boot()
     {

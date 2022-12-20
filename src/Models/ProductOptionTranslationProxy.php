@@ -1,6 +1,6 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Models;
+namespace AmooAti\CustomizableOptions\Models;
 
 use Konekt\Concord\Proxies\ModelProxy;
 

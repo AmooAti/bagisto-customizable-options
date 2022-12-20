@@ -1,9 +1,9 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Providers;
+namespace AmooAti\CustomizableOptions\Providers;
 
-use AmooAti\CustomizableOption\Models\ProductOption;
-use AmooAti\CustomizableOption\Models\ProductOptionTranslation;
+use AmooAti\CustomizableOptions\Models\ProductOption;
+use AmooAti\CustomizableOptions\Models\ProductOptionTranslation;
 use Webkul\Core\Providers\CoreModuleServiceProvider;
 
 class ModuleServiceProvider extends CoreModuleServiceProvider

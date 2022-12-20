@@ -1,11 +1,10 @@
 <?php
 
-namespace AmooAti\CustomizableOption\Providers;
+namespace AmooAti\CustomizableOptions\Providers;
 
-use AmooAti\CustomizableOption\Repositories\ProductOptionRepository;
+use AmooAti\CustomizableOptions\Repositories\ProductOptionRepository;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use Webkul\Theme\ViewRenderEventManager;
 
 class EventServiceProvider extends ServiceProvider
 {
