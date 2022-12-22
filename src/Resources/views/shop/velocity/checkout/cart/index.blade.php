@@ -115,7 +115,7 @@
                                                     @endforeach
                                                 @endif
 
-                                                @if (isset($item->options))
+                                                @if ($item->options->count())
                                                     <span class="fw6 fs16 text-right pr0">
                                                         {{ __('amooati-co::app.shop.product.customization-options') }}
                                                     </span>
