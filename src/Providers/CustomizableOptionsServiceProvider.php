@@ -5,9 +5,11 @@ namespace AmooAti\CustomizableOptions\Providers;
 use AmooAti\CustomizableOptions\Cart\Cart;
 use AmooAti\CustomizableOptions\Models\CartItem;
 use AmooAti\CustomizableOptions\Models\Product;
+use AmooAti\CustomizableOptions\ProductTypes\Simple;
 use Illuminate\Support\ServiceProvider;
 use Webkul\Checkout\Contracts\CartItem as CartItemContract;
 use Webkul\Product\Contracts\Product as ProductContract;
+use Webkul\Product\Type\Simple as WebkulSimpleProductType;
 
 class CustomizableOptionsServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,8 @@ class CustomizableOptionsServiceProvider extends ServiceProvider
         $this->app->concord->registerModel(ProductContract::class, Product::class);
 
         $this->app->concord->registerModel(CartItemContract::class, CartItem::class);
+
+        $this->app->bind(WebkulSimpleProductType::class, Simple::class);
 
         $this->publishes([
             __DIR__ . '/../Resources/views/shop/velocity/products/view.blade.php' => resource_path('themes/velocity/views/products/view.blade.php'),
